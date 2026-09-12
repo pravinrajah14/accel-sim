@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_chain_generalize.py (measured ~= 0.85*old_pred + 1.0ms, an arbitrary illustrative discount -- not a real result). Replace with a real profile_chain_generalize.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "shape": [2048, 2048],
+  "iters": 50,
+  "warmup": 15,
+  "results": {
+    "depth1_m8192":  {"depth": 1, "tokens": 8192,  "forward": {"mean_ms": 2.20, "std_ms": 0.05}, "backward": {"mean_ms": 10.66, "std_ms": 0.15}, "optimizer": {"mean_ms": 0.40, "std_ms": 0.02}},
+    "depth2_m8192":  {"depth": 2, "tokens": 8192,  "forward": {"mean_ms": 4.40, "std_ms": 0.08}, "backward": {"mean_ms": 20.31, "std_ms": 0.25}, "optimizer": {"mean_ms": 0.75, "std_ms": 0.03}},
+    "depth4_m8192":  {"depth": 4, "tokens": 8192,  "forward": {"mean_ms": 8.80, "std_ms": 0.12}, "backward": {"mean_ms": 39.62, "std_ms": 0.40}, "optimizer": {"mean_ms": 1.45, "std_ms": 0.04}},
+    "depth8_m8192":  {"depth": 8, "tokens": 8192,  "forward": {"mean_ms": 17.60, "std_ms": 0.20}, "backward": {"mean_ms": 78.25, "std_ms": 0.60}, "optimizer": {"mean_ms": 2.85, "std_ms": 0.06}},
+    "depth4_m512":   {"depth": 4, "tokens": 512,   "forward": {"mean_ms": 0.65, "std_ms": 0.03}, "backward": {"mean_ms": 2.30, "std_ms": 0.05}, "optimizer": {"mean_ms": 1.40, "std_ms": 0.04}},
+    "depth4_m1024":  {"depth": 4, "tokens": 1024,  "forward": {"mean_ms": 0.75, "std_ms": 0.03}, "backward": {"mean_ms": 2.70, "std_ms": 0.06}, "optimizer": {"mean_ms": 1.42, "std_ms": 0.04}},
+    "depth4_m2048":  {"depth": 4, "tokens": 2048,  "forward": {"mean_ms": 1.30, "std_ms": 0.04}, "backward": {"mean_ms": 5.04, "std_ms": 0.08}, "optimizer": {"mean_ms": 1.43, "std_ms": 0.04}},
+    "depth4_m4096":  {"depth": 4, "tokens": 4096,  "forward": {"mean_ms": 2.60, "std_ms": 0.06}, "backward": {"mean_ms": 12.76, "std_ms": 0.20}, "optimizer": {"mean_ms": 1.44, "std_ms": 0.04}},
+    "depth4_m16384": {"depth": 4, "tokens": 16384, "forward": {"mean_ms": 34.00, "std_ms": 0.40}, "backward": {"mean_ms": 80.02, "std_ms": 0.80}, "optimizer": {"mean_ms": 1.46, "std_ms": 0.05}},
+    "repeat_depth4_m8192": {"depth": 4, "tokens": 8192, "forward": {"mean_ms": 8.85, "std_ms": 0.12}, "backward": {"mean_ms": 39.80, "std_ms": 0.40}, "optimizer": {"mean_ms": 1.46, "std_ms": 0.04}}
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

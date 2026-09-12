@@ -1,0 +1,194 @@
+{
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "mac_bytes": 2,
+  "tokens": 8192,
+  "d_model": 768,
+  "d_ff": 3072,
+  "iters": 50,
+  "warmup": 15,
+  "phase_ms": {
+    "forward": 4.117864958047866,
+    "backward": 20.61960702896118,
+    "optimizer": 1.7836416015028955,
+    "step": 26.52111358851194
+  },
+  "per_layer": {
+    "q_proj": {
+      "K": 768,
+      "N": 768,
+      "forward": {
+        "mean_ms": 0.650026239156723,
+        "std_ms": 0.009061388055177151
+      },
+      "backward": {
+        "mean_ms": 2.728784651756287,
+        "std_ms": 0.09575261402164215
+      },
+      "optimizer": {
+        "mean_ms": 0.40708096206188205,
+        "std_ms": 0.44287895450305775
+      }
+    },
+    "k_proj": {
+      "K": 768,
+      "N": 768,
+      "forward": {
+        "mean_ms": 0.34553216099739076,
+        "std_ms": 0.0070810762609931676
+      },
+      "backward": {
+        "mean_ms": 2.0470566368103027,
+        "std_ms": 0.008504789237787663
+      },
+      "optimizer": {
+        "mean_ms": 0.181632000207901,
+        "std_ms": 0.002885122810443274
+      }
+    },
+    "v_proj": {
+      "K": 768,
+      "N": 768,
+      "forward": {
+        "mean_ms": 0.37790016233921053,
+        "std_ms": 0.25041814408847257
+      },
+      "backward": {
+        "mean_ms": 2.211466875076294,
+        "std_ms": 0.4805200819537985
+      },
+      "optimizer": {
+        "mean_ms": 0.1968851199746132,
+        "std_ms": 0.07808060906417758
+      }
+    },
+    "attn_out": {
+      "K": 768,
+      "N": 768,
+      "forward": {
+        "mean_ms": 0.34958463966846465,
+        "std_ms": 0.01407993694947239
+      },
+      "backward": {
+        "mean_ms": 2.052195191383362,
+        "std_ms": 0.007808187071683564
+      },
+      "optimizer": {
+        "mean_ms": 0.18364863991737365,
+        "std_ms": 0.0030329613925129785
+      }
+    },
+    "mlp_up": {
+      "K": 768,
+      "N": 3072,
+      "forward": {
+        "mean_ms": 1.1640134358406067,
+        "std_ms": 0.023742426088632966
+      },
+      "backward": {
+        "mean_ms": 7.7884057426452635,
+        "std_ms": 0.03530352693068809
+      },
+      "optimizer": {
+        "mean_ms": 0.40063488006591796,
+        "std_ms": 0.0013690825394248004
+      }
+    },
+    "mlp_down": {
+      "K": 3072,
+      "N": 768,
+      "forward": {
+        "mean_ms": 1.2308083200454711,
+        "std_ms": 0.02119960606705009
+      },
+      "backward": {
+        "mean_ms": 3.791697931289673,
+        "std_ms": 0.03997004357701545
+      },
+      "optimizer": {
+        "mean_ms": 0.4137599992752075,
+        "std_ms": 0.001959498211974824
+      }
+    }
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "top_ops": [
+    {
+      "op": "aten::mm",
+      "cuda_ms": 1.3848899999999995,
+      "count": 18
+    },
+    {
+      "op": "Optimizer.step#Adam.step",
+      "cuda_ms": 1.1222100000000028,
+      "count": 1
+    },
+    {
+      "op": "aten::mul",
+      "cuda_ms": 1.0561950000000033,
+      "count": 12
+    },
+    {
+      "op": "turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_32x1_nn",
+      "cuda_ms": 0.8145369999999966,
+      "count": 3
+    },
+    {
+      "op": "aten::copy_",
+      "cuda_ms": 0.7341569999999956,
+      "count": 18
+    },
+    {
+      "op": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+      "cuda_ms": 0.6255830000000023,
+      "count": 2
+    },
+    {
+      "op": "turing_fp16_s1688gemm_fp16_128x256_ldg8_f2f_stages_32x1_nt",
+      "cuda_ms": 0.5679850000000006,
+      "count": 2
+    },
+    {
+      "op": "aten::add_",
+      "cuda_ms": 0.46597199999999794,
+      "count": 12
+    },
+    {
+      "op": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul>)",
+      "cuda_ms": 0.46597199999999794,
+      "count": 3
+    },
+    {
+      "op": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+      "cuda_ms": 0.430612000000001,
+      "count": 2
+    },
+    {
+      "op": "Memcpy DtoD (Device -> Device)",
+      "cuda_ms": 0.425780999999999,
+      "count": 2
+    },
+    {
+      "op": "void at::native::vectorized_elementwise_kernel<4, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+      "cuda_ms": 0.30837599999999654,
+      "count": 2
+    },
+    {
+      "op": "aten::_foreach_addcdiv_",
+      "cuda_ms": 0.24393000000000029,
+      "count": 1
+    },
+    {
+      "op": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<c10::Half, 3, 3, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<c10::Half, 3, 3, 0>, std::divides<float>)",
+      "cuda_ms": 0.24393000000000029,
+      "count": 1
+    },
+    {
+      "op": "aten::div",
+      "cuda_ms": 0.22485800000000017,
+      "count": 6
+    }
+  ]
+}

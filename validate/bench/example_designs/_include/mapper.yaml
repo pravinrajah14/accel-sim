@@ -1,0 +1,11 @@
+mapper:
+  version: 0.4
+  optimization_metrics: [ edp ]   # this build only supports edp; we read the
+                                  # Cycles stat from the resulting mapping
+  live_status: False
+  num_threads: 8
+  timeout: 1500
+  victory_condition: 50
+  search_size: 2000
+  algorithm: random
+  diagnostics: False

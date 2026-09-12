@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_silicon.py. Replace with a real profile_step.py run.",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.4.0",
+  "cuda": "12.1",
+  "dtype": "bfloat16",
+  "mac_bytes": 2,
+  "tokens": 8192,
+  "d_model": 768,
+  "d_ff": 3072,
+  "iters": 50,
+  "warmup": 15,
+  "phase_ms": {
+    "forward": 0.612,
+    "backward": 1.207,
+    "optimizer": 0.284,
+    "step": 2.103
+  },
+  "per_layer": {
+    "q_proj":   {"K": 768,  "N": 768,  "forward": {"mean_ms": 0.052, "std_ms": 0.004}, "backward": {"mean_ms": 0.101, "std_ms": 0.006}, "optimizer": {"mean_ms": 0.021, "std_ms": 0.002}},
+    "k_proj":   {"K": 768,  "N": 768,  "forward": {"mean_ms": 0.051, "std_ms": 0.003}, "backward": {"mean_ms": 0.099, "std_ms": 0.005}, "optimizer": {"mean_ms": 0.021, "std_ms": 0.002}},
+    "v_proj":   {"K": 768,  "N": 768,  "forward": {"mean_ms": 0.052, "std_ms": 0.003}, "backward": {"mean_ms": 0.100, "std_ms": 0.005}, "optimizer": {"mean_ms": 0.021, "std_ms": 0.002}},
+    "attn_out": {"K": 768,  "N": 768,  "forward": {"mean_ms": 0.052, "std_ms": 0.004}, "backward": {"mean_ms": 0.101, "std_ms": 0.006}, "optimizer": {"mean_ms": 0.021, "std_ms": 0.002}},
+    "mlp_up":   {"K": 768,  "N": 3072, "forward": {"mean_ms": 0.176, "std_ms": 0.009}, "backward": {"mean_ms": 0.352, "std_ms": 0.012}, "optimizer": {"mean_ms": 0.100, "std_ms": 0.004}},
+    "mlp_down": {"K": 3072, "N": 768,  "forward": {"mean_ms": 0.177, "std_ms": 0.010}, "backward": {"mean_ms": 0.353, "std_ms": 0.013}, "optimizer": {"mean_ms": 0.100, "std_ms": 0.004}}
+  },
+  "top_ops": [
+    {"op": "aten::mm", "cuda_ms": 0.71, "count": 12},
+    {"op": "aten::addmm", "cuda_ms": 0.18, "count": 6},
+    {"op": "FusedAdam", "cuda_ms": 0.28, "count": 1}
+  ],
+  "host": "Linux-5.15-x86_64 (synthetic)"
+}

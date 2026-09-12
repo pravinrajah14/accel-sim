@@ -1,0 +1,65 @@
+{
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "tokens": 8192,
+  "chain_dims": [
+    [
+      768,
+      768
+    ],
+    [
+      768,
+      768
+    ],
+    [
+      768,
+      3072
+    ],
+    [
+      3072,
+      768
+    ]
+  ],
+  "iters": 30,
+  "warmup": 10,
+  "configs": {
+    "1": {
+      "mean_ms": 11.47316157023112,
+      "std_ms": 1.5495032349020001,
+      "peak_activation_mb": 255.98464,
+      "microbatch_tokens": 8192,
+      "n_chunks": 1
+    },
+    "2": {
+      "mean_ms": 11.673199939727784,
+      "std_ms": 0.2707630943495721,
+      "peak_activation_mb": 161.219584,
+      "microbatch_tokens": 4096,
+      "n_chunks": 2
+    },
+    "4": {
+      "mean_ms": 11.765115737915039,
+      "std_ms": 0.07221695754901826,
+      "peak_activation_mb": 108.135424,
+      "microbatch_tokens": 2048,
+      "n_chunks": 4
+    },
+    "8": {
+      "mean_ms": 12.769652207692465,
+      "std_ms": 0.4049340667520589,
+      "peak_activation_mb": 81.396736,
+      "microbatch_tokens": 1024,
+      "n_chunks": 8
+    },
+    "16": {
+      "mean_ms": 15.354718812306722,
+      "std_ms": 0.46164578227261366,
+      "peak_activation_mb": 68.813824,
+      "microbatch_tokens": 512,
+      "n_chunks": 16
+    }
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39"
+}

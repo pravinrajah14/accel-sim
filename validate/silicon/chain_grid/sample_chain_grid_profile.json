@@ -1,0 +1,41 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_chain_grid.py. Backward set to roughly half the old-constant prediction to mirror the real isolated-vs-chained gap documented in profile_chain_grid.py's docstring. Replace with a real profile_chain_grid.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "iters": 50,
+  "warmup": 15,
+  "configs": {
+    "gpt2_block_full": {
+      "dims": [[768, 768], [768, 768], [768, 768], [768, 768], [768, 3072], [3072, 768]],
+      "tokens": 8192,
+      "forward": {"mean_ms": 3.90, "std_ms": 0.08},
+      "backward": {"mean_ms": 8.54, "std_ms": 0.15},
+      "optimizer": {"mean_ms": 1.10, "std_ms": 0.05}
+    },
+    "wide_shallow": {
+      "dims": [[768, 4096], [4096, 768]],
+      "tokens": 8192,
+      "forward": {"mean_ms": 4.46, "std_ms": 0.09},
+      "backward": {"mean_ms": 9.79, "std_ms": 0.18},
+      "optimizer": {"mean_ms": 0.65, "std_ms": 0.03}
+    },
+    "narrow_deep": {
+      "dims": [[512, 512], [512, 512], [512, 512], [512, 512], [512, 512], [512, 512], [512, 512], [512, 512]],
+      "tokens": 8192,
+      "forward": {"mean_ms": 0.87, "std_ms": 0.03},
+      "backward": {"mean_ms": 4.82, "std_ms": 0.11},
+      "optimizer": {"mean_ms": 0.55, "std_ms": 0.02}
+    },
+    "small_batch": {
+      "dims": [[768, 768], [768, 768], [768, 3072], [3072, 768]],
+      "tokens": 1024,
+      "forward": {"mean_ms": 0.66, "std_ms": 0.02},
+      "backward": {"mean_ms": 0.73, "std_ms": 0.03},
+      "optimizer": {"mean_ms": 0.35, "std_ms": 0.02}
+    }
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

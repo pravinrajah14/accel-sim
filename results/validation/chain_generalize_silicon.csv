@@ -1,0 +1,5 @@
+gpu,config,depth,tokens,measured_bwd_ms,old_pred_bwd_ms,new_pred_bwd_ms,old_err_pct,new_err_pct
+Tesla T4,depth1_m8192,1,8192,6.5240,11.3596,12.7206,74.12,94.98
+Tesla T4,depth2_m8192,2,8192,9.6865,22.7191,24.0801,134.55,148.60
+Tesla T4,depth4_m8192,4,8192,17.0357,45.4383,46.7993,166.72,174.71
+Tesla T4,depth8_m8192,8,8192,31.8318,90.8766,92.2376,185.49,189.77

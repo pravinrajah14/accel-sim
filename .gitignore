@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+
+# generated Timeloop configs + mapper outputs (regenerate with gen_timeloop_configs.py)
+validate/bench/example_designs/ws_*
+validate/bench/example_designs/os_wgrad_*
+validate/bench/example_designs/wsw_*
+validate/bench/**/outputs/
+
+# real-GPU profiles are machine-specific; sample_*.json and the archived
+# profiles/ directory are checked in. Each anchor lives in its own
+# validate/silicon/<anchor>/ directory alongside its own sample file.
+silicon_profile*.json
+attention_profile*.json
+recompute_profile*.json
+gradaccum_profile*.json
+optimizer_profile*.json
+chain_grid_profile*.json
+chain_depth_profile*.json
+chain_generalize_profile*.json
+gemm_size_profile*.json
+validate/silicon/**/*.json
+!validate/silicon/**/sample_*.json
+!validate/silicon/profiles/*.json

@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_gemm_size.py (backward discount rising smoothly 0.43->0.90 with size, forward 0.86->0.95 -- an arbitrary illustrative curve, not a real result). Replace with a real profile_gemm_size.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "tokens": 8192,
+  "sizes": [256, 512, 768, 1024, 1536, 2048, 3072, 4096],
+  "iters": 50,
+  "warmup": 15,
+  "results": {
+    "256":  {"forward": {"mean_ms": 0.0304, "std_ms": 0.003}, "backward": {"mean_ms": 0.562, "std_ms": 0.02}, "optimizer": {"mean_ms": 0.15, "std_ms": 0.01}},
+    "512":  {"forward": {"mean_ms": 0.1044, "std_ms": 0.004}, "backward": {"mean_ms": 0.536, "std_ms": 0.02}, "optimizer": {"mean_ms": 0.16, "std_ms": 0.01}},
+    "768":  {"forward": {"mean_ms": 0.2359, "std_ms": 0.005}, "backward": {"mean_ms": 0.626, "std_ms": 0.02}, "optimizer": {"mean_ms": 0.18, "std_ms": 0.01}},
+    "1024": {"forward": {"mean_ms": 0.4216, "std_ms": 0.006}, "backward": {"mean_ms": 0.768, "std_ms": 0.03}, "optimizer": {"mean_ms": 0.20, "std_ms": 0.01}},
+    "1536": {"forward": {"mean_ms": 0.9616, "std_ms": 0.01}, "backward": {"mean_ms": 3.588, "std_ms": 0.06}, "optimizer": {"mean_ms": 0.28, "std_ms": 0.01}},
+    "2048": {"forward": {"mean_ms": 2.139, "std_ms": 0.02}, "backward": {"mean_ms": 7.384, "std_ms": 0.10}, "optimizer": {"mean_ms": 0.38, "std_ms": 0.01}},
+    "3072": {"forward": {"mean_ms": 7.178, "std_ms": 0.06}, "backward": {"mean_ms": 16.80, "std_ms": 0.20}, "optimizer": {"mean_ms": 0.60, "std_ms": 0.02}},
+    "4096": {"forward": {"mean_ms": 13.415, "std_ms": 0.10}, "backward": {"mean_ms": 29.44, "std_ms": 0.30}, "optimizer": {"mean_ms": 0.85, "std_ms": 0.02}}
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

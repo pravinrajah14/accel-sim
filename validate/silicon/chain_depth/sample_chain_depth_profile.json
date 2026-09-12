@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_chain_depth.py -- measured backward set to a clean A*depth+B line (A=0.5, B=1.5) to sanity-check the OLS fit code. Replace with a real profile_chain_depth.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "shape": [768, 768],
+  "tokens": 8192,
+  "depths": [1, 2, 4, 6, 8],
+  "iters": 50,
+  "warmup": 15,
+  "results": {
+    "1": {"forward": {"mean_ms": 0.20, "std_ms": 0.01}, "backward": {"mean_ms": 2.00, "std_ms": 0.05}, "optimizer": {"mean_ms": 0.30, "std_ms": 0.02}},
+    "2": {"forward": {"mean_ms": 0.40, "std_ms": 0.01}, "backward": {"mean_ms": 2.50, "std_ms": 0.06}, "optimizer": {"mean_ms": 0.55, "std_ms": 0.02}},
+    "4": {"forward": {"mean_ms": 0.80, "std_ms": 0.02}, "backward": {"mean_ms": 3.50, "std_ms": 0.08}, "optimizer": {"mean_ms": 1.05, "std_ms": 0.03}},
+    "6": {"forward": {"mean_ms": 1.20, "std_ms": 0.03}, "backward": {"mean_ms": 4.50, "std_ms": 0.10}, "optimizer": {"mean_ms": 1.55, "std_ms": 0.04}},
+    "8": {"forward": {"mean_ms": 1.60, "std_ms": 0.03}, "backward": {"mean_ms": 5.50, "std_ms": 0.12}, "optimizer": {"mean_ms": 2.05, "std_ms": 0.05}}
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

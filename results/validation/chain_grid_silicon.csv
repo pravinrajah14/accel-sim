@@ -1,0 +1,9 @@
+gpu,config,phase,measured_ms,old_pred_ms,old_pct_err,new_pred_ms,new_pct_err
+Tesla T4,gpt2_block_full,forward,3.7919,4.1075,8.32,4.1476,9.38
+Tesla T4,gpt2_block_full,backward,7.1008,17.7934,150.58,14.9731,110.86
+Tesla T4,wide_shallow,forward,3.4096,4.8501,42.25,4.8768,43.03
+Tesla T4,wide_shallow,backward,6.3820,17.7908,178.77,17.7908,178.77
+Tesla T4,narrow_deep,forward,1.4487,0.9680,33.18,0.9859,31.94
+Tesla T4,narrow_deep,backward,2.6402,9.2741,251.27,2.5722,2.58
+Tesla T4,small_batch,forward,0.5159,0.6934,34.41,0.3516,31.84
+Tesla T4,small_batch,backward,0.8590,1.2174,41.73,0.7017,18.31

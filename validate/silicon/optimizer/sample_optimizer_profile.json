@@ -1,0 +1,32 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_optimizer.py. Replace with a real profile_optimizer.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "layer_sizes": [589824, 589824, 2359296, 2359296],
+  "chain_dims": [[768, 768], [768, 768], [768, 3072], [3072, 768]],
+  "iters": 50,
+  "warmup": 15,
+  "results": {
+    "fp32": {
+      "per_layer": [
+        {"mean_ms": 0.28, "std_ms": 0.01},
+        {"mean_ms": 0.28, "std_ms": 0.01},
+        {"mean_ms": 1.05, "std_ms": 0.03},
+        {"mean_ms": 1.05, "std_ms": 0.03}
+      ],
+      "total_ms": 2.66
+    },
+    "bf16": {
+      "per_layer": [
+        {"mean_ms": 0.24, "std_ms": 0.02},
+        {"mean_ms": 0.24, "std_ms": 0.02},
+        {"mean_ms": 0.90, "std_ms": 0.04},
+        {"mean_ms": 0.90, "std_ms": 0.04}
+      ],
+      "total_ms": 2.28
+    }
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

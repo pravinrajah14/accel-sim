@@ -1,0 +1,6 @@
+gpu,depth,measured_fwd_ms,predicted_fwd_ms,measured_bwd_ms,old_predicted_bwd_ms,old_discount,new_predicted_bwd_ms,new_discount
+Tesla T4,1,1.2151,1.0564,2.1724,1.2666,1.7151,1.9123,1.1360
+Tesla T4,2,1.1130,1.3278,2.0748,2.5332,0.8191,2.4636,0.8422
+Tesla T4,4,1.6662,1.8706,3.1752,5.0663,0.6267,3.5662,0.8904
+Tesla T4,6,2.2348,2.4134,4.2790,7.5995,0.5631,4.6688,0.9165
+Tesla T4,8,2.7899,2.9562,5.4050,10.1326,0.5334,5.7714,0.9365

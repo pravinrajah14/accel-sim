@@ -1,0 +1,20 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_gradaccum.py. Replace with a real profile_gradaccum.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "tokens": 8192,
+  "chain_dims": [[768, 768], [768, 768], [768, 3072], [3072, 768]],
+  "iters": 30,
+  "warmup": 10,
+  "configs": {
+    "1":  {"mean_ms": 28.90, "std_ms": 0.31, "peak_activation_mb": 132.0, "microbatch_tokens": 8192, "n_chunks": 1},
+    "2":  {"mean_ms": 21.10, "std_ms": 0.24, "peak_activation_mb": 68.0,  "microbatch_tokens": 4096, "n_chunks": 2},
+    "4":  {"mean_ms": 17.30, "std_ms": 0.19, "peak_activation_mb": 36.0,  "microbatch_tokens": 2048, "n_chunks": 4},
+    "8":  {"mean_ms": 22.60, "std_ms": 0.22, "peak_activation_mb": 19.5,  "microbatch_tokens": 1024, "n_chunks": 8},
+    "16": {"mean_ms": 38.40, "std_ms": 0.40, "peak_activation_mb": 11.0,  "microbatch_tokens": 512,  "n_chunks": 16}
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

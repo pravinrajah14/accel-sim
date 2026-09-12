@@ -1,0 +1,5 @@
+gpu,spec,dtype,tokens,phase,measured_ms,measured_ci95_ms,predicted_ms,ratio,abs_pct_err
+Tesla T4,Tesla T4,float16,8192,forward,4.1179,0.0702,4.1075,0.9975,0.25
+Tesla T4,Tesla T4,float16,8192,backward,20.6196,0.1367,17.7934,0.8629,13.71
+Tesla T4,Tesla T4,float16,8192,optimizer,1.7836,0.1247,2.8322,1.5879,58.79
+Tesla T4,Tesla T4,float16,8192,step,26.5211,0.1978,24.7331,0.9326,6.74

@@ -1,0 +1,28 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_attention.py. Replace with a real profile_attention.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "batch": 8,
+  "seq": 1024,
+  "n_heads": 12,
+  "d_head": 64,
+  "iters": 50,
+  "warmup": 15,
+  "naive": {
+    "forward":  {"mean_ms": 5.512, "std_ms": 0.21},
+    "backward": {"mean_ms": 11.47, "std_ms": 0.34}
+  },
+  "fused": {
+    "forward":  {"mean_ms": 0.612, "std_ms": 0.04},
+    "backward": {"mean_ms": 1.184, "std_ms": 0.06}
+  },
+  "fused_top_ops": [
+    {"op": "aten::scaled_dot_product_attention", "cuda_ms": 0.05, "count": 1},
+    {"op": "aten::_scaled_dot_product_efficient_attention", "cuda_ms": 0.55, "count": 1},
+    {"op": "aten::_scaled_dot_product_efficient_attention_backward", "cuda_ms": 1.10, "count": 1}
+  ],
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

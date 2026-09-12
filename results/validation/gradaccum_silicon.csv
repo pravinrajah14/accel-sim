@@ -1,0 +1,6 @@
+gpu,spec,dtype,fraction,measured_ms,ci95_ms,predicted_ms,ratio_ms,measured_mb,raw_predicted_mb,raw_ratio_mb,adj_predicted_mb,adj_ratio_mb
+Tesla T4,Tesla T4,float16,1,11.4732,0.5545,18.8249,1.6408,255.9846,88.0804,0.3441,257.6923,1.0067
+Tesla T4,Tesla T4,float16,2,11.6732,0.0969,13.9181,1.1923,161.2196,44.0402,0.2732,157.6251,0.9777
+Tesla T4,Tesla T4,float16,4,11.7651,0.0258,11.2699,0.9579,108.1354,22.0201,0.2036,107.5916,0.9950
+Tesla T4,Tesla T4,float16,8,12.7697,0.1449,15.8366,1.2402,81.3967,11.0100,0.1353,82.5748,1.0145
+Tesla T4,Tesla T4,float16,16,15.3547,0.1652,26.9553,1.7555,68.8138,5.5050,0.0800,70.0664,1.0182

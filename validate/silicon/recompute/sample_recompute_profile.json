@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "_comment": "Illustrative numbers only, hand-written to exercise compare_recompute.py. Replace with a real profile_recompute.py run.",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "tokens": 8192,
+  "chain_dims": [[768, 768], [768, 768], [768, 3072], [3072, 768]],
+  "iters": 50,
+  "warmup": 15,
+  "stored": {
+    "forward":  {"mean_ms": 5.71, "std_ms": 0.09},
+    "backward": {"mean_ms": 24.42, "std_ms": 0.14}
+  },
+  "recompute": {
+    "forward":  {"mean_ms": 5.71, "std_ms": 0.08},
+    "backward": {"mean_ms": 25.63, "std_ms": 0.19}
+  },
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39 (synthetic)"
+}

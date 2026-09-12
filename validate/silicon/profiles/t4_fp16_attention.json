@@ -1,0 +1,85 @@
+{
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "dtype": "float16",
+  "batch": 8,
+  "seq": 1024,
+  "n_heads": 12,
+  "d_head": 64,
+  "iters": 50,
+  "warmup": 15,
+  "naive": {
+    "forward": {
+      "mean_ms": 6.075648641586303,
+      "std_ms": 0.027573395338642226
+    },
+    "backward": {
+      "mean_ms": 12.657786254882813,
+      "std_ms": 0.023524462757353558
+    }
+  },
+  "fused": {
+    "forward": {
+      "mean_ms": 1.804188802242279,
+      "std_ms": 0.023539494538158588
+    },
+    "backward": {
+      "mean_ms": 8.194953575134278,
+      "std_ms": 0.0760667640912408
+    }
+  },
+  "fused_top_ops": [
+    {
+      "op": "aten::_efficient_attention_backward",
+      "cuda_ms": 11.904823,
+      "count": 1
+    },
+    {
+      "op": "fmha_cutlassB_f16_aligned_64x64_k64_sm75(PyTorchMemEffAttention::AttentionBackwardKernel<cutlass::arch::Sm75, cutlass::half_t, true, false, false, 64, 64, 64, false>::Params)",
+      "cuda_ms": 11.904823,
+      "count": 1
+    },
+    {
+      "op": "aten::_efficient_attention_forward",
+      "cuda_ms": 3.625852,
+      "count": 1
+    },
+    {
+      "op": "Activity Buffer Request",
+      "cuda_ms": 3.625852,
+      "count": 1
+    },
+    {
+      "op": "fmha_cutlassF_f16_aligned_64x64_rf_sm75(PyTorchMemEffAttention::AttentionKernel<cutlass::half_t, cutlass::arch::Sm75, true, 64, 64, 64, true, true>::Params)",
+      "cuda_ms": 3.625852,
+      "count": 1
+    },
+    {
+      "op": "aten::copy_",
+      "cuda_ms": 0.7328430000000062,
+      "count": 4
+    },
+    {
+      "op": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+      "cuda_ms": 0.7328430000000062,
+      "count": 4
+    },
+    {
+      "op": "aten::fill_",
+      "cuda_ms": 0.11670099999999911,
+      "count": 2
+    },
+    {
+      "op": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<unsigned char>, std::array<char*, 1ul> >(int, at::native::FillFunctor<unsigned char>, std::array<char*, 1ul>)",
+      "cuda_ms": 0.11327700000000004,
+      "count": 1
+    },
+    {
+      "op": "aten::sum",
+      "cuda_ms": 0.06540600000000085,
+      "count": 1
+    }
+  ],
+  "host": "Linux-6.6.122+-x86_64-with-glibc2.39"
+}
